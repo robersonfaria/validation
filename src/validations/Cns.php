@@ -29,7 +29,7 @@ class Cns implements CustomValidationInterface
         return true;
     }
 
-    private function calc1($cns)
+    private static function calc1($cns)
     {
         //Variável de retorno da função. Só é alterada nos casos TRUE
         $cnsValido = false;
@@ -43,7 +43,7 @@ class Cns implements CustomValidationInterface
         return $cnsValido;
     }
 
-    private function calc2($cns)
+    private static function calc2($cns)
     {
         $cnsValido = false;
         // A décima segunda e décima terceira posições do CNS definitivo devem ser sempre '0'
