@@ -1,44 +1,16 @@
 <?php
 /**
- * Created by PhpStorm.
  * User: roberson.faria
  * Date: 26/12/16
  * Time: 10:50
  */
 
-namespace RobersonFaria\Validation;
+namespace RobersonFaria\Validation\Validations;
 
+use RobersonFaria\Validation\Contracts\CustomValidationInterface;
 
-use Illuminate\Container\Container;
-use Illuminate\Validation\Validator;
-
-class CnpjValidation extends Validator
+class Cnpj implements CustomValidationInterface
 {
-
-    private $_custom_messages;
-
-    public function __construct($translator, $data, $rules, $messages, $customAttributes)
-    {
-        parent::__construct($translator, $data, $rules, $messages, $customAttributes);
-
-        $this->setMessage();
-        $this->_set_custom_stuff();
-    }
-
-    public function app()
-    {
-        return Container::getInstance()->make('config');
-    }
-
-    public function setMessage()
-    {
-        $this->_custom_messages = ['cnpj' => config('custom-validation.' . app()->getLocale() . ".cnpj")];
-    }
-
-    protected function _set_custom_stuff()
-    {
-        $this->setCustomMessages($this->_custom_messages);
-    }
 
     /**
      * Função para validação do cnpj retirado do https://gist.github.com/willianmano/1a8abab569e4ae8c2604136d87870c43
@@ -46,7 +18,7 @@ class CnpjValidation extends Validator
      * @param $value
      * @return bool
      */
-    public function validateCnpj($attribute, $value)
+    public static function validate($attribute, $value)
     {
         /*
         Etapa 1: Cria um array com apenas os digitos numéricos,

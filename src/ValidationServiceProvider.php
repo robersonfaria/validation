@@ -12,19 +12,7 @@ class ValidationServiceProvider extends ServiceProvider
         ],'config');
 
         $this->app->validator->resolver( function( $translator, $data, $rules, $messages = array(), $customAttributes = array() ) {
-            return new CnsValidation( $translator, $data, $rules, $messages, $customAttributes );
-        });
-
-        $this->app->validator->resolver( function( $translator, $data, $rules, $messages = array(), $customAttributes = array() ) {
-            return new CnpjValidation( $translator, $data, $rules, $messages, $customAttributes );
-        });
-
-        $this->app->validator->resolver( function( $translator, $data, $rules, $messages = array(), $customAttributes = array() ) {
-            return new CpfValidation( $translator, $data, $rules, $messages, $customAttributes );
-        });
-
-        $this->app->validator->resolver( function( $translator, $data, $rules, $messages = array(), $customAttributes = array() ) {
-            return new CepFormatValidation( $translator, $data, $rules, $messages, $customAttributes );
+            return new CustomValidation( $translator, $data, $rules, $messages, $customAttributes );
         });
     }
 

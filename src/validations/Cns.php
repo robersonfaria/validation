@@ -1,47 +1,17 @@
 <?php
 /**
- * Created by PhpStorm.
  * User: roberson.faria
  * Date: 22/12/16
  * Time: 17:29
  */
 
-namespace RobersonFaria\Validation;
+namespace RobersonFaria\Validation\Validations;
 
+use RobersonFaria\Validation\Contracts\CustomValidationInterface;
 
-use Illuminate\Container\Container;
-use Illuminate\Validation\Validator;
-
-class CnsValidation extends Validator
+class Cns implements CustomValidationInterface
 {
-
-    private $_custom_messages;
-
-    public function __construct($translator, $data, $rules, $messages, $customAttributes)
-    {
-        parent::__construct($translator, $data, $rules, $messages, $customAttributes);
-
-        $this->setMessage();
-        $this->_set_custom_stuff();
-    }
-
-    public function app()
-    {
-        return Container::getInstance()->make('config');
-    }
-
-    public function setMessage()
-    {
-        $this->_custom_messages = ['cns' =>  config('custom-validation.'.app()->getLocale().".cns")];
-    }
-
-    protected function _set_custom_stuff()
-    {
-        $this->setCustomMessages($this->_custom_messages);
-    }
-
-
-    public function validateCns($attribute, $value)
+    public static function validate($attribute, $value)
     {
         $cns = $value;
         $cnsValido = true;
@@ -50,9 +20,9 @@ class CnsValidation extends Validator
         if (strlen($vlrCNS) != 15 || !is_numeric($vlrCNS) || strpos($vlrCNS, '-') !== false || $vlrCNS == '000000000000000')
             $cnsValido = false;
         else if (substr($vlrCNS, 0, 1) == '7' || substr($vlrCNS, 0, 1) == '8' || substr($vlrCNS, 0, 1) == '9')
-            $cnsValido = $this->calc1($vlrCNS);
+            $cnsValido = self::calc1($vlrCNS);
         else
-            $cnsValido = $this->calc2($vlrCNS);
+            $cnsValido = self::calc2($vlrCNS);
 
         if (!$cnsValido)
             return false;
