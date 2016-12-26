@@ -18,6 +18,8 @@ class ValidationServiceProvider extends ServiceProvider
 
     public function register()
     {
-        // TODO: Implement register() method.
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/config.php', 'custom-validation'
+        );
     }
 }
