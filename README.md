@@ -85,3 +85,6 @@ Criação do pacote e implementação da validação do CNS - Cartão Nacional d
 
 ####1.0.1
 Implementação das validações de CNPJ, CPF e formato de CEP.
+
+####1.0.2
+Adicionado merge do arquivo de configuração para quando tiver modificações.
