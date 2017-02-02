@@ -88,3 +88,6 @@ Implementação das validações de CNPJ, CPF e formato de CEP.
 
 ####1.0.2
 Adicionado merge do arquivo de configuração para quando tiver modificações.
+
+####1.0.3
+Correção de autoload no composer.json
