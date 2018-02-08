@@ -10,6 +10,7 @@ Instale a dependencia com o seguinte comando
 composer require robersonfaria/validation
 ```
 
+#### Laravel 5.4-
 Configure o sua aplicação adicionando o seguinte provider:
 
 config/app.php
@@ -20,6 +21,11 @@ config/app.php
 ]
 ```
 
+#### Laravel 5.5+
+Adicionado suporte ao Package Discovery, sendo assim não é mais necessário adicionar o Service Provider ao seu `config/app.php`
+
+
+#### Arquivo de configuração
 Publique o arquivo de configuração(no momento tem somente as mensagens de erros separadas por liguagem)
 
 ```bash

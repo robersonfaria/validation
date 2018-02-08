@@ -1,7 +1,17 @@
 {
     "name": "robersonfaria/validation",
     "description": "Pacote Laravel para validações comuns ao Brasil(pt-BR) tipo: CNPJ,CPF,CEP,CNS",
-    "keywords": ["Laravel","Validation","CNPJ","CPF","CEP","CNS","pt-BR"],
+    "keywords": [
+        "Laravel",
+        "Validation",
+        "CNPJ",
+        "CPF",
+        "CEP",
+        "CNS",
+        "pt-BR",
+        "Brasil",
+        "Validação"
+    ],
     "license": "MIT",
     "authors": [
         {
@@ -16,5 +26,12 @@
         "classmap": [
             "src/"
         ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "RobersonFaria\\Validation\\ValidationServiceProvider"
+            ]
+        }
     }
 }
