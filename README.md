@@ -25,13 +25,6 @@ config/app.php
 Adicionado suporte ao Package Discovery, sendo assim não é mais necessário adicionar o Service Provider ao seu `config/app.php`
 
 
-#### Arquivo de configuração
-Publique o arquivo de configuração(no momento tem somente as mensagens de erros separadas por liguagem)
-
-```bash
-php artisan vendo:publish --provider="RobersonFaria\Validation\ValidationServiceProvider"
-```
-
 ## Uso
 
 Para usar basta adicionar o nome da validação que deseja como regra:
@@ -44,26 +37,14 @@ $this->validate($request, [
 
 ## Mensagens de erro
 
-As mensagens podem ser customizadas alterando o arquivo `config/custom-validation.php` o conteúdo padrão é o seguinte:
-
+Adicione as mensagens de validação no seu arquivo na respectiva linguagem. Ex: Em pt_BR o arquivo `resources/lang/pt_BR/validation.php`
 ```php
 <?php
-return [
-    'pt-BR' => [
-        'cns' => 'O campo :attribute é inválido.',
-        'cnpj' => 'O campo :attribute é inválido.',
-        'cpf' => 'O campo :attribute é inválido.',
-        'cep_format' => 'O campo :attribute não possui um formato de cep válido',
-    ],
-    'en' => [
-        'cns ' => 'The field :attribute is not valid',
-        'cnpj ' => 'The field :attribute is not valid',
-        'cpf' => 'The field :attribute is not valid',
-        'cep_format' => 'The field :attribute does not have a valid zip format',
-    ]
-];
+    'cns' => 'O campo :attribute é inválido.',
+    'cnpj' => 'O campo :attribute é inválido.',
+    'cpf' => 'O campo :attribute é inválido.',
+    'cep_format' => 'O campo :attribute não possui um formato de cep válido',
 ```
-A linguagem para exibição da mensagem de erro será decidida a partir do parâmetro **_locale_** do arquivo `config/app.php`.
 
 Ou ainda, se desejar, pode customizar a mensagem de erro em tempo de execução:
 
@@ -97,3 +78,9 @@ Adicionado merge do arquivo de configuração para quando tiver modificações.
 
 #### 1.0.3
 Correção de autoload no composer.json
+
+#### 1.0.4
+Adicionado package discovery
+
+#### 2.0.0
+Alterado para compatibilizar com laravel 5.5
