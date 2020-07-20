@@ -86,4 +86,7 @@ Adicionado package discovery
 Alterado para compatibilizar com laravel 5.5
 
 #### 2.0.1
-Alterado para compatibilizar com laravel 5.6+
+Alterado para compatibilizar com laravel 5.6
+
+#### 2.0.2
+Alterado para compatibilizar com laravel 5.6+|6|7|8
